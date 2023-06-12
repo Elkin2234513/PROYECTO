@@ -33,3 +33,4 @@ def REGLA60101020(Sueldo):
 Sueldo = int(input("DIGITE SU SUELDO: "))
 
 REGLA60101020(Sueldo)
+
