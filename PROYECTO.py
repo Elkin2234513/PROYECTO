@@ -2,33 +2,30 @@ from tkinter import *
 from tkinter import messagebox
 
 # FUNCIONES DE LA APP
-def REGLA503020():
-    
-    if int(SUELDO.get()) > 1300606:
-        Gastos_basicos = int(SUELDO.get())*0.5
-        GASTOS_EXTRA = int(SUELDO.get())*0.3
-        AHORRO = int(SUELDO.get())*0.2
-        t_resultados.insert(INSERT, f"\n {int(SUELDO.get())*0.5} = {Gastos_basicos} $")
-        t_extra.insert(INSERT, f"\n {int(SUELDO.get())*0.3} = {GASTOS_EXTRA} $")
-        t_ahorros.insert(INSERT, f"\n {int(SUELDO.get())*0.2} = {AHORRO} $")
+# def REGLA503020():
+#     if int(SUELDO.get()) > 1300606:
+#         Gastos_basicos = int(SUELDO.get())*0.5
+#         GASTOS_EXTRA = int(SUELDO.get())*0.3
+#         AHORRO = int(SUELDO.get())*0.2
+#         t_resultados.insert(INSERT, f"\n {int(SUELDO.get())*0.5} = {Gastos_basicos} $")
+#         t_extra.insert(INSERT, f"\n {int(SUELDO.get())*0.3} = {GASTOS_EXTRA} $")
+#         t_ahorros.insert(INSERT, f"\n {int(SUELDO.get())*0.2} = {AHORRO} $")
+#     else:
+#         toplevel_de_eleccion.insert(INSERT, "¡¡NO ES SUFICIENTE!!")
 
-    else:
-        toplevel_de_eleccion.insert(INSERT, "¡¡NO ES SUFICIENTE!!")
+# def REGLA60101020(Sueldo):
+#    global RTA_ESENCIAL, RTA_EXTRA, RTA_AHORRO, RTA_INVENTIR
+#   if SUELDO > 1300606:
+#     AHORROS = SUELDO*0.1
+#      INVERTIR = SUELDO*0.1
+#      GASTOS_EXTRA = SUELDO*0.2
+#      RTA_ESENCIAL.insert(INSERT, f"\n {Gasto_basicos}$")
+#      RTA_EXTRA.insert(INSERT, f"\n {GASTOS_EXTRA}$")
+#      RTA_AHORRO.insert(INSERT, f"\n {AHORROS}$")
+#      RTA_INVENTIR.insert(INSERT, f"\n {INVERTIR}$" )
 
-def REGLA60101020(Sueldo):
-    global RTA_ESENCIAL, RTA_EXTRA, RTA_AHORRO, RTA_INVENTIR
-    if SUELDO > 1300606:
-       Gasto_basicos = SUELDO*0.6
-       AHORROS = SUELDO*0.1
-       INVERTIR = SUELDO*0.1
-       GASTOS_EXTRA = SUELDO*0.2
-       RTA_ESENCIAL.insert(INSERT, f"\n {Gasto_basicos}$")
-       RTA_EXTRA.insert(INSERT, f"\n {GASTOS_EXTRA}$")
-       RTA_AHORRO.insert(INSERT, f"\n {AHORROS}$")
-       RTA_INVENTIR.insert(INSERT, f"\n {INVERTIR}$" )
-
-    else:
-       toplevel_de_eleccion.insert(INSERT, "¡¡NO ES SUFICIENTE!!")  
+#   else:
+#      toplevel_de_eleccion.insert(INSERT, "¡¡NO ES SUFICIENTE!!")  
 
 
 
@@ -54,8 +51,21 @@ def abrir_toplevel_de_eleccion():
     bt_INVEST.place(x=450, y=500)
 
 
-
+# boton izquierdo
 def abrir_toplevel_more_savings(sueldo):
+    def REGLA503020():
+        valor = int(TSUELDO.get())
+        if valor > 1300606:
+            print(valor)
+            Gastos_basicos = valor*0.5
+            GASTOS_EXTRA = valor*0.3
+            AHORRO = valor*0.2
+            t_resultados.insert(INSERT, str(Gastos_basicos))
+            t_extra.insert(INSERT, str(GASTOS_EXTRA))
+            t_ahorros.insert(INSERT, str(AHORRO))
+        else:
+            toplevel_de_eleccion.insert(INSERT, "¡¡NO ES SUFICIENTE!!")
+    
     global toplevel_de_eleccion
     toplevel_de_eleccion = Toplevel()
     toplevel_de_eleccion.title("50/30/20")
@@ -83,6 +93,7 @@ def abrir_toplevel_more_savings(sueldo):
     lb_logo3 = Label(toplevel_de_eleccion, image=LOGO3, bg="#D4C39A")
     lb_logo3.place(x=400, y=400)
 
+    # sueldo
     TSUELDO = Entry(toplevel_de_eleccion, textvariable= sueldo)
     TSUELDO.config(bg="#A48C64", fg="white", font=("Century Gothic", 20), width=27)
     TSUELDO.focus_set()
@@ -103,20 +114,32 @@ def abrir_toplevel_more_savings(sueldo):
     bt_EXPLICACION = Button(toplevel_de_eleccion,text="EXPLICATION", command= abrir_explicacion)
     bt_EXPLICACION.config(bg="#A48C64", fg="white", font=("Century Gothic", 18), width=15)
     bt_EXPLICACION.place(x=100, y=550, height=50)
-
-
-    bt_CALCULAR = Button(toplevel_de_eleccion,text="CALCULATE", command= REGLA503020)
+    
+    # boton que imprime el valor de TSUELDO
+    bt_CALCULAR = Button(toplevel_de_eleccion,text="CALCULATE", command=REGLA503020)
     bt_CALCULAR.config(bg="#A48C64", fg="white", font=("Century Gothic", 18), width=15)
     bt_CALCULAR.place(x=450, y=50, height=50)
 
     bt_volver = Button(toplevel_de_eleccion,text="COME BACK", command=comeback)
     bt_volver.config(bg="#A48C64", fg="white", font=("Century Gothic", 14), width=15)
     bt_volver.place(x=0, y=0, height=20)
-
-
-
-
+ 
+ 
 def abrir_toplevel_learn_invest():
+    def REGLA60101020():
+        valor = int(TSUELDO.get())
+        if valor > 0:
+            Gastos_basicos = valor * 0.6
+            GASTOS_EXTRA = valor * 0.2
+            AHORRO = valor * 0.1
+            INVERSION = valor * 0.1
+            t_esencial.insert(INSERT, str(Gastos_basicos))
+            t_extra.insert(INSERT, str(GASTOS_EXTRA))
+            t_ahorros.insert(INSERT, str(AHORRO))
+            t_inversion.insert(INSERT, str(INVERSION))
+        else:
+            toplevel_de_eleccion.insert(INSERT, "¡¡ERROR!!")
+
     global toplevel_de_eleccion
     toplevel_de_eleccion = Toplevel()
     toplevel_de_eleccion.title("60/10/10/10/20")
@@ -146,39 +169,40 @@ def abrir_toplevel_learn_invest():
     INVERTIR = Label(toplevel_de_eleccion, text="TO INVEST")
     INVERTIR.config(bg="White", fg="medium sea green", font=("Century Gothic", 28))
     INVERTIR.place(x=500, y=450)
- 
-    TSUELDO = Entry(toplevel_de_eleccion, textvariable= SUELDO)
+
+    TSUELDO = Entry(toplevel_de_eleccion, textvariable=SUELDO)
     TSUELDO.config(bg="sea green", fg="white", font=("Bodoni MT", 20), width=27)
     TSUELDO.focus_set()
-    TSUELDO.place(x=270,y=100)
+    TSUELDO.place(x=270, y=100)
 
-    RTA_ESENCIAL = Text(toplevel_de_eleccion)
-    RTA_ESENCIAL.config(bg="sea green", fg="white", font=("Bodoni MT", 24))
-    RTA_ESENCIAL.place(x=300,y=200,width=380,height=50)
+    t_esencial = Text(toplevel_de_eleccion)
+    t_esencial.config(bg="sea green", fg="white", font=("Bodoni MT", 24))
+    t_esencial.place(x=300, y=200, width=380, height=50)
 
-    RTA_EXTRA = Text(toplevel_de_eleccion)
-    RTA_EXTRA .config(bg="sea green", fg="white", font=("Bodoni MT", 24))
-    RTA_EXTRA .place(x=300,y=300,width=380,height=50)
+    t_extra = Text(toplevel_de_eleccion)
+    t_extra.config(bg="sea green", fg="white", font=("Bodoni MT", 24))
+    t_extra.place(x=300, y=300, width=380, height=50)
 
-    RTA_AHORROS = Text(toplevel_de_eleccion)
-    RTA_AHORROS.config(bg="sea green", fg="white", font=("Bodoni MT", 24))
-    RTA_AHORROS.place(x=300,y=400,width=380,height=50)
+    t_ahorros = Text(toplevel_de_eleccion)
+    t_ahorros.config(bg="sea green", fg="white", font=("Bodoni MT", 24))
+    t_ahorros.place(x=300, y=400, width=380, height=50)
 
-    RTA_INVENTIR = Text(toplevel_de_eleccion)
-    RTA_INVENTIR.config(bg="sea green", fg="white", font=("Bodoni MT", 24))
-    RTA_INVENTIR.place(x=300,y=500,width=380,height=50)
+    t_inversion = Text(toplevel_de_eleccion)
+    t_inversion.config(bg="sea green", fg="white", font=("Bodoni MT", 24))
+    t_inversion.place(x=300, y=500, width=380, height=50)
 
-    bt_EXPLICACION = Button(toplevel_de_eleccion,text="EXPLICATION", command= abrir_explicacion)
+    bt_EXPLICACION = Button(toplevel_de_eleccion, text="EXPLICATION", command=abrir_explicacion_mas_invertir)
     bt_EXPLICACION.config(bg="medium sea green", fg="white", font=("Bodoni MT", 18), width=15)
     bt_EXPLICACION.place(x=400, y=600, height=50)
 
-    bt_CALCULAR = Button(toplevel_de_eleccion,text="CALCULATE")
+    bt_CALCULAR = Button(toplevel_de_eleccion, text="CALCULATE", command=REGLA60101020)
     bt_CALCULAR.config(bg="medium sea green", fg="white", font=("Bodoni MT", 18), width=15)
     bt_CALCULAR.place(x=25, y=75, height=50)
 
-    bt_volver = Button(toplevel_de_eleccion,text="COME BACK", command= come_back)
+    bt_volver = Button(toplevel_de_eleccion, text="COME BACK", command=come_back)
     bt_volver.config(bg="medium sea green", fg="white", font=("Bodoni MT", 14), width=15)
     bt_volver.place(x=0, y=0, height=20)
+
 
 
 
@@ -200,15 +224,26 @@ def abrir_explicacion():
     explicacion_window = Toplevel()
     explicacion_window.title("EXPLICATION")
     explicacion_window.resizable(False, False)
-    explicacion_window.geometry("700x700")
-    explicacion_window.config(bg="plum1")
+    explicacion_window.geometry("700x500")
+    explicacion_window.config(bg="DarkOrange2")#A48C64
 
     # Texto de explicación
-    texto_explicacion = "Ya están abiertas las inscripciones para Bibliovacaciones Biblioteca Bicentenario 2023.\n\nEste espacio está diseñado para niños y niñas entre los 7 y 12 años que quieran aprovechar sus días de descanso y disfrutar de una serie de actividades que con seguridad marcarán la diferencia en esta temporada de receso escolar.\n\n¡Cupos limitados! Inscríbete ya."
-    label_explicacion = Label(explicacion_window, text=texto_explicacion, bg="aquamarine", fg="black", font=("Arial", 14), justify=LEFT)
+    texto_explicacion = "ESSENTIAL EXPENSES = En gastos esenciales se refiere a los mas basico\n que se necesita para vivir por ejemplo lo que es el mercado del mes\n y los implementos de aseo personal y de la casa tambien,\n otro gasto basico seria el arriendo o la hipoteca del banco\n o los impuesto dependiendo la situacio\n\n EXTRA EXPENSES  = los gastos extra son por ejemplo una menbrecia de \n gimnacio, una o dos suscripciones a distintas plataformas de \n entretenimiento tambien internet fijo de internet, datos moviles,\nn comidas rapidas, alcohol y gastos de una sola ves osea un gasto personal \n\n SAVINGS =  Un ahorro de emergencia el cual busca tener \nel despues de seis mese el equivalente al 50% para \n cualquier problema que se presente o tambien vacaciones que quieras \n o algo que pretendas comprar. "
+    label_explicacion = Label(explicacion_window, text=texto_explicacion, bg="DarkOrange2", fg="white", font=("Small Fonts", 14), justify=LEFT)
     label_explicacion.place(x=10, y=50)
 
+def abrir_explicacion_mas_invertir():
+    global explicacion_window
+    explicacion_window = Toplevel()
+    explicacion_window.title("EXPLICATION")
+    explicacion_window.resizable(False, False)
+    explicacion_window.geometry("700x600")
+    explicacion_window.config(bg="DarkOrange1")#A48C64
 
+    # Texto de explicación
+    texto_explicacion = "ESSENTIAL EXPENSES = En gastos esenciales se refiere a los mas basico\n que se necesita para vivir por ejemplo lo que es el mercado del mes\n y los implementos de aseo personal y de la casa tambien,\n otro gasto basico seria el arriendo o la hipoteca del banco\n o los impuesto dependiendo la situacio\n\n EXTRA EXPENSES  = los gastos extra son por ejemplo una menbrecia de \n gimnacio, una o dos suscripciones a distintas plataformas de \n entretenimiento tambien internet fijo de internet, datos moviles,\nn comidas rapidas, alcohol y gastos de una sola ves osea un gasto personal \n\n SAVINGS =  Un ahorro de emergencia el cual busca tener \nel despues de seis mese el equivalente al 50% para \n cualquier problema que se presente o tambien vacaciones que quieras \n o algo que pretendas comprar. \n\n\n INVETS = Este porcentaje de tu dinero puedes usarlo \n para invertir y probar cosas nuevas, es mas recomendables \n para los jovenes ya que asi puede hacer prueba y error \n y invertir sin mucho margen de error. Tambien se puede\n  utilizar para emprender y crear tu nueva empresa. "
+    label_explicacion = Label(explicacion_window, text=texto_explicacion, bg="DarkOrange1", fg="white", font=("Small Fonts", 14), justify=LEFT)
+    label_explicacion.place(x=10, y=50)
 
 
 def come_back():
@@ -269,4 +304,3 @@ bt_CODIGOS.place(x=270, y=600)
 
 
 ventana_principal.mainloop()
-

@@ -170,11 +170,11 @@ def abrir_explicacion():
     explicacion_window.config(bg="plum1")
 
     # Texto de explicación
-    texto_explicacion = "Ya están abiertas las inscripciones para Bibliovacaciones Biblioteca Bicentenario 2023.\n\nEste espacio está diseñado para niños y niñas entre los 7 y 12 años que quieran aprovechar sus días de descanso y disfrutar de una serie de actividades que con seguridad marcarán la diferencia en esta temporada de receso escolar.\n\n¡Cupos limitados! Inscríbete ya."
+    texto_explicacion = " están abiertas las inscripciones para Bibliovacaciones Biblioteca Bicentenario 2023.\n\nEste espacio está diseñado para niños y niñas entre los 7 y 12 años que quieran aprovechar sus días de descanso y disfrutar de una serie de actividades que con seguridad marcarán la diferencia en esta temporada de receso escolar.\n\n¡Cupos limitados! Inscríbete ya."
     label_explicacion = Label(explicacion_window, text=texto_explicacion, bg="aquamarine", fg="black", font=("Arial", 14), justify=LEFT)
     label_explicacion.place(x=10, y=50)
 
-
+#\n\n
 
 
 def come_back():
